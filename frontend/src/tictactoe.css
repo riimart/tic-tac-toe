@@ -1,0 +1,54 @@
+.game {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 12px;
+  justify-content: center;
+  margin: 24px auto 48px auto;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--dark-200);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-3);
+  color: var(--primary-100);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(.isSelected) {
+    background-color: var(--gray-100);
+  }
+}
+
+.isSelected {
+  cursor: default;
+}
+
+.status {
+  font-size: var(--fs-4);
+  margin-top: 32px;
+}
+
+.scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
