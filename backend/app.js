@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("https://tic-tac-toe-gq68.onrender.com/api/matches", matchesRoutes);
+app.use("/api/matches", matchesRoutes);
 
 // connect to db
 mongoose
