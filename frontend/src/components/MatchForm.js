@@ -11,16 +11,13 @@ const MatchForm = () => {
     e.preventDefault();
 
     const match = { player_1, player_2 };
-    const response = await fetch(
-      "https://tic-tac-toe-gq68.onrender.com/api/matches",
-      {
-        method: "Post",
-        body: JSON.stringify(match),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch("http://localhost:4000/api/matches", {
+      method: "Post",
+      body: JSON.stringify(match),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const json = await response.json();
 
     if (!response.ok) {
@@ -36,7 +33,7 @@ const MatchForm = () => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="match-form" onSubmit={handleSubmit}>
       {error && <div className="error">{error}</div>}
 
       <div className="input-field">
@@ -58,7 +55,6 @@ const MatchForm = () => {
           value={player_2}
         />
       </div>
-
       <button className="btn btn-primary btn-form">Start Game</button>
     </form>
   );
