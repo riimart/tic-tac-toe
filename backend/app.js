@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const matchesRoutes = require("./routes/matches");
@@ -10,15 +11,18 @@ const app = express();
 // middleware
 app.use(express.json());
 
+const corsOptions = {
+  origin: "https://tic-tac-toe-frontend-jlln.onrender.com",
+  optionsSuccessStatus: 200,
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
-
-// routes
-// app.get("/", (req, res) => {
-//   res.json({ mssg: "Hello World!" });
-// });
 
 app.use("/api/matches", matchesRoutes);
 
