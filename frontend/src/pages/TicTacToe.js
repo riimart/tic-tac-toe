@@ -17,9 +17,7 @@ const TicTacToe = () => {
   useEffect(() => {
     const fetchMatch = async () => {
       try {
-        const response = await fetch(
-          `https://tic-tac-toe-backend.onrender.com/api/matches/${matchId}`
-        );
+        const response = await fetch(`/api/matches/${matchId}`);
         const json = await response.json();
 
         if (response.ok) {
@@ -91,16 +89,13 @@ const TicTacToe = () => {
     }
 
     try {
-      const response = await fetch(
-        `https://tic-tac-toe-backend.onrender.com/api/matches/${matchId}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(updatedMatchDetails),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`/api/matches/${matchId}`, {
+        method: "PATCH",
+        body: JSON.stringify(updatedMatchDetails),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (response.ok) {
         const json = await response.json();

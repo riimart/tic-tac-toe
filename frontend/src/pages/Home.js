@@ -12,9 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchMatches = async () => {
-      const response = await fetch(
-        "https://tic-tac-toe-backend.onrender.com/api/matches"
-      );
+      const response = await fetch("/api/matches");
       const json = await response.json();
 
       if (response.ok) {
