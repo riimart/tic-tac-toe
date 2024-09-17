@@ -11,13 +11,16 @@ const MatchForm = () => {
     e.preventDefault();
 
     const match = { player_1, player_2 };
-    const response = await fetch("/api/matches", {
-      method: "Post",
-      body: JSON.stringify(match),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://tic-tac-toe-gq68.onrender.com/api/matches",
+      {
+        method: "Post",
+        body: JSON.stringify(match),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
