@@ -13,6 +13,7 @@ app.use(express.json());
 
 const corsOptions = {
   origin: "https://tic-tac-toe-frontend-jlln.onrender.com",
+  methods: ["GET", "POST", "PATCH", "DELETE"],
   optionsSuccessStatus: 200,
 };
 
